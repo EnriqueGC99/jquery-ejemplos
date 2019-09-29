@@ -7,6 +7,18 @@ $(document).ready(function() {
       alert('Tu contaseña es invalida');
     }
   }
-
-  $('.login-btn').click(passwordValidation)
+  var emailValidation = function (){
+    let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let getemailValue = document.querySelector('.email-input').value;
+    console.log(getemailValue);
+    console.log(emailRegex.test(getemailValue));
+    if(!emailRegex.test(getemailValue)){
+      alert('Tu correo no es valido');
+    }
+  }
+  $('.login-btn').click(() => {
+    passwordValidation();
+    emailValidation();
+  })
 });
+
